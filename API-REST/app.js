@@ -15,6 +15,10 @@ app.use(
 app.use(express.json());
 
 // routes
+const userRoute = require('./routes/UserRoute');
+
+
+app.use('/users', userRoute);
 
 
 mongoose.connect(process.env.DB_CONNECTION,
