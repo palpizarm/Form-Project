@@ -16,9 +16,10 @@ app.use(express.json());
 
 // routes
 const userRoute = require('./routes/UserRoute');
-
+const templateRoute = require('./routes/TemplateRoute');
 
 app.use('/users', userRoute);
+app.use('/template', templateRoute);
 
 
 mongoose.connect(process.env.DB_CONNECTION,

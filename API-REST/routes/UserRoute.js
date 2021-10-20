@@ -102,3 +102,29 @@ router.get('/',async (req,res) => {
     }
     
 });
+
+
+//delete => borrar un usuario por ID
+router.delete('/:userId',async (req,res) => {
+    try{
+        const removeUser = await User.remove({_id: req.params.userId});
+        const removeForm = await Form.deleteMany({sender: req.body.user});
+        const removeApproval = await Approval.deleteMany({sender: req.body.user});
+ 
+        res.json({
+            errorCode: 0,
+            errorMsg: "",
+            data : {
+                "mensaje": "Usuario Eliminado"
+            }
+        });
+
+    }catch(error){
+        res.json({
+            errorCode: 1,
+            errorMsg: "MongoDB ERROR",
+            data : error
+        });
+    }
+    
+});
