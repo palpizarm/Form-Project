@@ -13,9 +13,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
     DashboardComponent
-
   ],
   imports: [
     BrowserModule,
