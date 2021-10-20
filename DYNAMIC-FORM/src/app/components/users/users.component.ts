@@ -19,7 +19,7 @@ export class UsersComponent implements OnInit {
       // users dummy
       this.usersList.push(<User>{name:'Juan', password : 'Juan88', typeUser: 'usuario', forms: ['Vacaciones'], email: ''}) 
       this.usersList.push(<User>{name:'Juan1', password : 'Juan88', typeUser: 'usuario', forms: ['Vacaciones'], email: ''}) 
-      this.usersList.push(<User>{name:'Juan2', password : 'Juan88', typeUser: 'usuario', forms: ['Vacaciones'], email: ''}) 
+      this.usersList.push(<User>{name:'Juan2', password : 'Juan88', typeUser: 'usuario', forms: ['Vacaciones'], email: ''})   
     }
 
 
