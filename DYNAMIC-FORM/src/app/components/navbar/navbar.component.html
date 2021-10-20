@@ -31,10 +31,11 @@
             </a>
         </p>
         <div class="collapse" id="collapseAccountItems">
-            <a class="item" role="button" aria-expanded="false">
+            <a class="item" role="button" data-bs-toggle="collapse" href="#collapseAccountItems" role="button"
+                aria-expanded="false" [routerLink]="[ '/accounts/new']">
                 Registrar usuario
             </a>
-            <a class="item" role="button" aria-expanded="false">
+            <a class="item" role="button" aria-expanded="false" [routerLink]="[ '/accounts/users']">
                 Consultar usuarios
             </a>
         </div>
