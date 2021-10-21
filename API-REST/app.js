@@ -17,9 +17,13 @@ app.use(express.json());
 // routes
 const userRoute = require('./routes/UserRoute');
 const templateRoute = require('./routes/TemplateRoute');
+const formRoute = require('./routes/FormR');
+const approvalRoute = require('./routes/ApprovalRoute');
 
 app.use('/users', userRoute);
 app.use('/template', templateRoute);
+app.use('/form', formRoute);
+app.use('/formRoute', approvalRoute);
 
 
 mongoose.connect(process.env.DB_CONNECTION,
