@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse container-fluid">
+        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+            aria-controls="offcanvasExample">
+            <i class="navbar-toggler-icon text-secondary"></i>
+        </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            </ul>
+            <button class="btn btn-outline-primary fw-bolder fs-6 " type="submit">Salir</button>
+        </div>
+    </div>
+</nav>
+
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+
+        <p>
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseAccountItems" role="button"
+                aria-expanded="false" aria-controls="collapseAccountItems">
+                Cuentas
+            </a>
+        </p>
+        <div class="collapse" id="collapseAccountItems">
+            <a class="item" role="button" data-bs-toggle="collapse" href="#collapseAccountItems" role="button"
+                aria-expanded="false" [routerLink]="[ '/accounts/new']">
+                Registrar usuario
+            </a>
+            <a class="item" role="button" aria-expanded="false" [routerLink]="[ '/accounts/users']">
+                Consultar usuarios
+            </a>
+        </div>
+
+        <p>
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseFormItems" role="button"
+                aria-expanded="false" aria-controls="collapseFormItems">
+                Formularios
+            </a>
+        </p>
+        <div class="collapse" id="collapseFormItems">
+            <a class="item" role="button" aria-expanded="false">
+                Enviar
+            </a>
+            <a class="item" role="button" aria-expanded="false">
+                Crear Plantilla
+            </a>
+            <a class="item" role="button" aria-expanded="false">
+                Ver Formularios
+            </a>
+        </div>
+    </div>
+</div>
