@@ -20,7 +20,7 @@ router.post('/create', async (req, res) =>{
             const savedTemplate = await template.save();
             res.json({
                 errorCode: 0,
-                errorMsg: "",
+                errorMsg: "Template agregado.",
                 data : savedTemplate
             });
         }
@@ -30,7 +30,7 @@ router.post('/create', async (req, res) =>{
 
     }else{
         res.json({
-            errorCode: 2,
+            errorCode: -1,
             errorMsg: "Plantilla ya existe.",
             data : template
         });
@@ -52,6 +52,10 @@ router.get('/',async (req, res)=>{
             data : template
         });
     }catch(error){
-        res.json({message: error});
+        res.json({
+            errorCode: -1,
+            errorMsg: "MongoDB Error",
+            data : error
+        });
     }
 });

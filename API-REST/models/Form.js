@@ -33,6 +33,10 @@ const FormSchema = mongoose.Schema({
     rejecters:{
         type: [String],
         required : true
+    },
+    receivers:{
+        type: [String],
+        required : true
     }
 });
 

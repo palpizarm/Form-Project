@@ -27,7 +27,7 @@ router.post('/', async (req, res) =>{
         }
         catch(error){
             res.json({
-                errorCode: 1,
+                errorCode: -1,
                 errorMsg: "MongoDB ERROR",
                 data : error
             });
@@ -35,7 +35,7 @@ router.post('/', async (req, res) =>{
         }
     }else{
         res.json({
-            errorCode: 1,
+            errorCode: -1,
             errorMsg: "El nombre de Usuario ingresado ya existe",
             data : validacion
         });
@@ -65,14 +65,14 @@ router.post('/login',async (req,res) => {
         }
         else{
             res.json({
-                errorCode: 1,
+                errorCode: -1,
                 errorMsg: "Usuario no encontrado",
                 data : user
             });
         }
     }catch(error){
         res.json({
-            errorCode: 1,
+            errorCode: -1,
             errorMsg: "MongoDB ERROR",
             data : error
         });
@@ -95,7 +95,7 @@ router.get('/',async (req,res) => {
         });
     }catch(error){
         res.json({
-            errorCode: 1,
+            errorCode: -1,
             errorMsg: "MongoDB ERROR",
             data : error
         });
@@ -121,7 +121,7 @@ router.delete('/:userId',async (req,res) => {
 
     }catch(error){
         res.json({
-            errorCode: 1,
+            errorCode: -1,
             errorMsg: "MongoDB ERROR",
             data : error
         });
