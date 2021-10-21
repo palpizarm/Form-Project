@@ -1,0 +1,61 @@
+<div class="animated fadeIn">
+    <div class="pt-5 pb-5">
+        <form (ngSubmit)="addUser(form)" #form="ngForm" class="validate-form mt-5">
+
+            <div class="row text-center">
+                <div class="col-md-12 col-lg-6">
+
+                    <h1 class="fs-1 fw-bolder mb-5">
+                        Agregar un nuevo usuario
+                        <i class="user-icon fas fa-user-plus fa-7x"></i>
+                    </h1>
+                </div>
+
+                <div class="col-md-12 col-lg-6">
+                    <div class="mb-3">
+                        <input class="bg-light fs-3" type="text" name="email" [(ngModel)]="user.email" required email
+                            placeholder="Correo" style="min-width: 400px; height: 50px;">
+                    </div>
+                    <span *ngIf="form.submitted && form.controls['email'].errors" class="text-danger animated fadeIn">
+                        El correo es obligatorio
+                    </span>
+
+                    <div class="mb-3">
+                        <input class="bg-light fs-3" type="text" name="name" [(ngModel)]="user.name" required name
+                            placeholder="Nombre de usuario" style="min-width: 400px; height: 50px;">
+                    </div>
+                    <span *ngIf="form.submitted && form.controls['name'].errors" class="text-danger animated fadeIn">
+                        El nombre de usuario es obligatorio
+                    </span>
+
+                    <div class="mb-3" data-validate="Password is required">
+                        <input class="bg-light fs-3" type="password" id='password' name="password"
+                            [(ngModel)]="user.password" required minlength="6" placeholder="Ingrese la contraseña"
+                            style="min-width: 400px; height: 50px;">
+                    </div>
+                    <span *ngIf="form.submitted && form.controls['password'].errors"
+                        class="text-danger animated fadeIn">
+                        Al  menos 6 letras
+                    </span>
+
+                    <div class="mb-3" data-validate="Password is required">
+                        <input class="bg-light fs-3" type="password" id='password-repit' name="password2" required
+                            minlength="6" placeholder="Ingrese la contraseña nuevamente"
+                            style="min-width: 400px; height: 50px;">
+                    </div>
+                    <span *ngIf="form.submitted && form.controls['password2'].errors"
+                        class="text-danger animated fadeIn">Al
+                        menos 6 letras
+                    </span>
+
+                    <div class="mt-2">
+                        <button class="btn btn-outline-primary fw-bolder fs-3" type="submit"
+                            style="min-width: 400px; height: 50px;">
+                            Crear
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
