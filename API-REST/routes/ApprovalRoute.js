@@ -54,4 +54,69 @@ router.get('/',async (req, res)=>{
             data : error
         });
     }
+
+});
+
+
+router.get('/getUser/:sender',async (req, res)=>{
+    try{
+        pSender=req.params.sender;
+        const appRoute = await ApprovalRoute.find({sender:pSender});
+        res.json({
+            errorCode: 0,
+            errorMsg: "",
+            data : appRoute
+        });
+    }catch(error){
+        res.json({
+            errorCode: -1,
+            errorMsg: "Error inesperado",
+            data : error
+        });
+    }
+});
+
+/*
+METHOD: Delete
+insert delete a route by Id
+*/
+router.delete('/deleteId',async (req, res)=>{
+    try{
+        const pId=req.body.id;
+        const appRoute = await ApprovalRoute.deleteOne({_id:pId});
+        res.json({
+            errorCode: 0,
+            errorMsg: "Ruta de aprobación eliminada.",
+            data : appRoute
+        });
+    }catch(error){
+        res.json({
+            errorCode: -1,
+            errorMsg: "Error inesperado",
+            data : error
+        });
+    }
+});
+
+/*
+METHOD: Delete
+insert delete a route by sender and form title
+*/
+router.delete('/deleteUserRoute',async (req, res)=>{
+    try{
+        const pSender=req.body.sender;
+        const pForm=req.body.formTitle;
+        const appRoute = await ApprovalRoute.deleteOne({sender:pSender,formTitle:pForm});
+        res.json({
+            errorCode: 0,
+            errorMsg: "Ruta de aprobación eliminada.",
+            data : appRoute
+        });
+    }catch(error){
+        res.json({
+            errorCode: -1,
+            errorMsg: "Error inesperado",
+            data : error
+        });
+    }
 });
