@@ -1,9 +1,33 @@
 <div class="animated fadeInUp">
     <div class="btn-grou mt-5 text-center" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-info mx-2">Todos</button>
-        <button type="button" class="btn btn-info mx-2">Enviados</button>
-        <button type="button" class="btn btn-info mx-2">Recibidos</button>
+        <button type="button" class="btn mx-2 color-dark-blue">Revisión</button>
+        <button type="button" class="btn mx-2 color-dark-blue">Aceptados</button>
+        <button type="button" class="btn mx-2 color-dark-blue">Rechazados</button>
       </div>
-
+      <div class="container">
+        <table id="users-table" class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre del formulario</th>
+                <th scope="col">Enviado a</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of formList; let index = index">
+                    <th scope="row">{{index}}</th>
+                    <td>{{item}}</td>
+                    <td>{{item}}</td>
+                    <td>{{item}}</td>
+                    <td>
+                        <button class="btn color-dark-blue mx-2">Ver</button>
+                        <button class="btn color-light-green mx-2">Eliminar</button>
+                    </td>
+                  </tr>
+            </tbody>
+          </table>
+    </div>
 
 </div>

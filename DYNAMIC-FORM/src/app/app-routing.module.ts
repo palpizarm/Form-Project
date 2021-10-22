@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'home', component: DashboardComponent},
   {path: 'accounts/users', component: UsersComponent},
   {path: 'accounts/new', component: NewUserComponent},
-  {path: 'forms/:filter', component: FormListComponent},
+  {path: 'forms', component: FormListComponent},
 
   {path: '**', pathMatch:'full', redirectTo: 'home'}
 ];
