@@ -9,6 +9,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UsersComponent } from './components/users/users.component';
 import { NewUserComponent } from './components/new-user/new-user.component';
+import { FormItemComponent } from './components/form-item/form-item.component';
+import { FormComponent } from './components/form/form.component';
+import { FormListComponent } from './components/form-list/form-list.component';
 
 
 @NgModule({
@@ -18,7 +21,10 @@ import { NewUserComponent } from './components/new-user/new-user.component';
     NavbarComponent,
     DashboardComponent,
     UsersComponent,
-    NewUserComponent
+    NewUserComponent,
+    FormItemComponent,
+    FormComponent,
+    FormListComponent
   ],
   imports: [
     BrowserModule,
