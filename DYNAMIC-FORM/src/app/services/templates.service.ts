@@ -37,7 +37,7 @@ export class TemplatesService {
     )
   }
  /*
-  SERVICE: GET TEMPLATES
+  SERVICE: GET ALL TEMPLATES
   Description: Service to get all form templates into collection
   Route used: METHOD: GET router.get('/') from API-REST/routes/TemplateRoute.js
   */
