@@ -1,4 +1,4 @@
-//imports
+// Imports.
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -6,7 +6,7 @@ const cors = require('cors');
 require('dotenv/config');
 
 
-// Middleware
+// Middleware.
 app.use(
     express.urlencoded({
         extended : true
@@ -14,7 +14,7 @@ app.use(
 );
 app.use(express.json());
 
-// routes
+// Routes.
 const userRoute = require('./routes/UserRoute');
 const templateRoute = require('./routes/TemplateRoute');
 const formRoute = require('./routes/FormR');
@@ -31,5 +31,5 @@ mongoose.connect(process.env.DB_CONNECTION,
     () => {console.log('Connected to DB!!!')
     });
 
-// Server listening in port 3000
+// Server listening in port 3000.
 app.listen(3000);

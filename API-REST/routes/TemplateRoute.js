@@ -1,14 +1,46 @@
+//Imports.
 const express = require('express');
 const router = express.Router();
 const Template = require('../models/Template');
 module.exports = router;
 
-//Create Template
+
+/*
+Method: GET.
+Description: Returns all existing templates.
+Request URL: http://localhost:3000/template/
+*/
+router.get('/', async (req, res)=>{
+    try{
+        const template = await Template.find()
+
+        res.json({
+            code: 0,
+            msg: "",
+            data: template
+        });
+        
+    }catch(error){
+        res.json({
+            code: -1,
+            msg: "MongoDB Error",
+            data: error
+        });
+    }
+});
+
+
+/*
+Method: POST.
+Description: Create a new template.
+Request URL: http://localhost:3000/template/create
+*/
 router.post('/create', async (req, res) =>{
 
     const validacion = await Template.count({title: req.body.title});
 
-    if (validacion==0){
+    if (validacion == 0){
+
         const template = new Template({
             title: req.body.title,
             questions: req.body.questions,
@@ -16,46 +48,29 @@ router.post('/create', async (req, res) =>{
             obligatory: req.body.obligatory,
             values: req.body.values
         });
+
         try{
             const savedTemplate = await template.save();
             res.json({
-                errorCode: 0,
-                errorMsg: "Template agregado.",
-                data : savedTemplate
+                code: 0,
+                msg: "Template creado con éxito.",
+                data: savedTemplate
             });
+
         }
         catch(error){
-            res.json({message: error});
+            res.json({
+                code: -1,
+                msg: "MongoDB ERROR",
+                data: error
+            });
         }
 
     }else{
         res.json({
-            errorCode: -1,
-            errorMsg: "Plantilla ya existe.",
-            data : template
+            code: -1,
+            msg: "El nombre de Template ingresado ya existe.",
+            data : ""
         });
     } 
-});
-
-
-/*
-METHOD: GET
-Description: get all form templates into collections
-*/
-//Read de todos los Templates
-router.get('/',async (req, res)=>{
-    try{
-        const template = await Template.find()
-        res.json({
-            errorCode: 0,
-            errorMsg: "",
-            data : template
-        });
-    }catch(error){
-        res.json({
-            errorCode: -1,
-            errorMsg: "MongoDB Error",
-            data : error
-        });
-    }
 });
