@@ -19,4 +19,4 @@ const FormRoute = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('FormRoute', ApprovalRouteSchema);
+module.exports = mongoose.model('FormRoute', FormRoute);
