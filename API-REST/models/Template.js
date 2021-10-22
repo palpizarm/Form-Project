@@ -1,5 +1,10 @@
+//Imports.
 const mongoose = require('mongoose');
 
+/*
+Scheme for handling the Templates. 
+Each template can only be created by "administrador" users.
+*/
 const Template = mongoose.Schema({
     title: {
         type: String,
@@ -7,7 +12,7 @@ const Template = mongoose.Schema({
     },
     questions: {
         type: [String],
-        required : true
+        required: true
     },
     type: {
         type: [String],
@@ -23,4 +28,4 @@ const Template = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Template', Template); //name and schema to use
+module.exports = mongoose.model('Template', Template); //Name and schema to use.
