@@ -96,6 +96,8 @@ router.get('/toReview/:receiver',async (req, res)=>{//Los que tiene que revisar
     }
 });
 
+});
+
 /*
 METHOD: GET
 Description: get all form by sender (user)
