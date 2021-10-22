@@ -1,43 +1,46 @@
+//Imports.
 const mongoose = require('mongoose');
 
+/*
+Scheme for handling the Forms.
+*/
 const FormSchema = mongoose.Schema({
     title: {
         type: String,
         required: true
     },
-    questions:{
+    questions: {
         type: [String],
         required: true
     },
     answers: {
         type: [String],
-        required : true
+        required: true
     },
     date : {
         type: Date,
         default: Date.now
     },
-    // state : revision, aceptado, rechazado
-    state:{
-        type:String,
-        required:true
+    state: {
+        type: String,    // type: Revision, Aceptado, Rechazado.
+        required: true
     },
-    sender:{
+    sender: {
         type: String,
-        required:true
+        required: true
     },
-    approvers:{
+    approvers: {
         type: [String],
-        required : true
+        required: true
     },
-    rejecters:{
+    rejecters: {
         type: [String],
-        required : true
+        required: true
     },
-    receivers:{
+    receivers: {
         type: [String],
-        required : true
+        required: true
     }
 });
 
-module.exports = mongoose.model('Form', FormSchema); //name and schema to use
+module.exports = mongoose.model('Form', FormSchema); // Name and schema to use.
