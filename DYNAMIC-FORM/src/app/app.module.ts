@@ -9,7 +9,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UsersComponent } from './components/users/users.component';
 import { NewUserComponent } from './components/new-user/new-user.component';
-import { FormItemComponent } from './components/form-item/form-item.component';
 import { FormComponent } from './components/form/form.component';
 import { FormListComponent } from './components/form-list/form-list.component';
 import { FormTemplateComponent } from './components/form-template/form-template.component';
@@ -21,9 +20,8 @@ import { FormTemplateComponent } from './components/form-template/form-template.
     LoginComponent,
     NavbarComponent,
     DashboardComponent,
-    UsersComponent,
+    UsersComponent, 
     NewUserComponent,
-    FormItemComponent,
     FormComponent,
     FormListComponent,
     FormTemplateComponent

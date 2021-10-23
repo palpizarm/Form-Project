@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'accounts/users', component: UsersComponent},
   {path: 'accounts/new', component: NewUserComponent},
   {path: 'forms', component: FormListComponent},
-  {path: 'create-form', component: FormTemplateComponent},
+  {path: 'create-form-template', component: FormTemplateComponent},
 
   {path: '**', pathMatch:'full', redirectTo: 'home'}
 ];
