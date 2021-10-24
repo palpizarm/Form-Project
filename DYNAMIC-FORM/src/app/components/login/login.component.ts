@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if(localStorage.getItem('username')) {
       this.user.username = localStorage.getItem('username');
+      this.rememberUser = true;
     }
   }
 

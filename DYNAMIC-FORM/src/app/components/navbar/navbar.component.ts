@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  adminUser : Boolean = true;
+  adminUser : Boolean = false;
   
   constructor(private router : Router) { }
 
