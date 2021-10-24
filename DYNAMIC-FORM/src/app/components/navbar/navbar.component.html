@@ -42,15 +42,15 @@
 
         <p>
             <a class="btn btn-primary w-100" data-bs-toggle="collapse" href="#collapseFormItems" role="button"
-                aria-expanded="false" aria-controls="collapseFormItems">
+                aria-expanded="true" aria-controls="collapseFormItems">
                 <strong>Formularios</strong>
             </a>
         </p>
         <div class="collapse" id="collapseFormItems">
-            <a class="dropdown-item" role="button" aria-expanded="false">
+            <a class="dropdown-item" role="button" aria-expanded="false" [routerLink]="['fill-form']">
                 <strong>Enviar</strong>
             </a>
-            <a *ngIf="adminUser" class="dropdown-item" role="button" aria-expanded="false">
+            <a *ngIf="adminUser" class="dropdown-item" role="button" [routerLink]="[ '/create-form-template']" aria-expanded="false">
                 <strong>Crear Plantilla</strong>
             </a>
             <a class="dropdown-item" role="button" aria-expanded="false" [routerLink]="[ '/forms']" >
