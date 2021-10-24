@@ -10,6 +10,11 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('userType') == 'usuario') {
+      this.adminUser = false;
+    } else {
+      this.adminUser = true;
+    }
   }
 
 }
