@@ -20,6 +20,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(localStorage.getItem('username')) {
+      this.user.username = localStorage.getItem('username');
+    }
   }
 
 
@@ -38,6 +41,7 @@ export class LoginComponent implements OnInit {
       if (data.code >= 0){
         localStorage.setItem('user', data.data.user);
         localStorage.setItem('userType', data.data.type);
+        localStorage.setItem('logDate', new Date().getTime().toString());
         this.router.navigateByUrl('/home');
       } else {
         Swal.fire({
