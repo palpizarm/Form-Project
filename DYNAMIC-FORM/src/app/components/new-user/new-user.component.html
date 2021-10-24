@@ -13,15 +13,7 @@
 
                 <div class="col-md-12 col-lg-6">
                     <div class="mb-3">
-                        <input class="bg-light fs-3" type="text" name="email" [(ngModel)]="user.email" required email
-                            placeholder="Correo" style="min-width: 400px; height: 50px;">
-                    </div>
-                    <span *ngIf="form.submitted && form.controls['email'].errors" class="text-danger animated fadeIn">
-                        El correo es obligatorio
-                    </span>
-
-                    <div class="mb-3">
-                        <input class="bg-light fs-3" type="text" name="name" [(ngModel)]="user.name" required name
+                        <input class="bg-light fs-3" type="text" name="name" [(ngModel)]="user.username" required name
                             placeholder="Nombre de usuario" style="min-width: 400px; height: 50px;">
                     </div>
                     <span *ngIf="form.submitted && form.controls['name'].errors" class="text-danger animated fadeIn">
