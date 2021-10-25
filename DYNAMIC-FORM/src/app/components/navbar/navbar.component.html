@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse container-fluid">
+        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+            aria-controls="offcanvasExample">
+            <i class="navbar-toggler-icon text-secondary"></i>
+            <span class="text-secondary fw-bolder">Menu</span>
+        </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            </ul>
+            <button class="btn btn-outline-primary fw-bolder fs-6" (click)="logout()" type="submit">Salir</button>
+        </div>
+    </div>
+</nav>
+
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title fw-bolder" id="offcanvasExampleLabel">Menu</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <p>
+            <a (disabled)="adminUser" class="btn btn-primary w-100" data-bs-toggle="collapse" href="#collapseAccountItems" role="button"
+                aria-expanded="false" aria-controls="collapseAccountItems">
+                Cuentas
+            </a>
+        </p>
+        <div class="collapse" id="collapseAccountItems">
+            <a *ngIf="adminUser" class="dropdown-item" role="button" data-bs-toggle="collapse" href="#collapseAccountItems" role="button"
+                aria-expanded="false" [routerLink]="[ '/accounts/new']">
+                <strong>Registrar usuario</strong>
+            </a>
+            <a *ngIf="adminUser" class="dropdown-item" role="button" aria-expanded="false" [routerLink]="[ '/accounts/users']">
+                <strong>Consultar usuarios</strong>
+            </a>
+        </div>
+
+        <p>
+            <a class="btn btn-primary w-100" data-bs-toggle="collapse" href="#collapseFormItems" role="button"
+                aria-expanded="false" aria-controls="collapseFormItems">
+                <strong>Formularios</strong>
+            </a>
+        </p>
+        <div class="collapse" id="collapseFormItems">
+            <a class="dropdown-item" role="button" aria-expanded="false">
+                <strong>Enviar</strong>
+            </a>
+            <a *ngIf="adminUser" class="dropdown-item" role="button" aria-expanded="false">
+                <strong>Crear Plantilla</strong>
+            </a>
+            <a class="dropdown-item" role="button" aria-expanded="false" [routerLink]="[ '/forms']" >
+                <strong>Ver Formularios</strong>
+            </a>
+            <a class="dropdown-item" role="button" aria-expanded="false" [routerLink]="[ '/']" >
+                <strong>Formularios Recibidos</strong>
+            </a>
+        </div>
+    </div>
+</div>

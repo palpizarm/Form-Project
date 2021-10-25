@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+.color-dark-blue{
+    background-color: #1E5B77;
+    color: #FFF;
+}
+
+.color-dark-blue:hover{
+    background-color: #13758A;
+    color: #FFF;
+}
+
+/*
+.color-dark-blue{
+    background-color: #13758A;
+    color: #FFF;
+}
+
+.color-dark-blue{
+    background-color: #7CAAA2;
+    color: #FFF;
+}
+*/
+.color-light-green{
+    background-color: #13758A;
+    color: #FFF;
+}
+
+.color-light-green:hover{
+    background-color: #7CAAA2;
+    color: #FFF;
+}
+
+
+
+
+
+
