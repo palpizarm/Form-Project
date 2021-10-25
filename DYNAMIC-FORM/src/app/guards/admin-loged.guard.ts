@@ -7,17 +7,21 @@ import { Observable } from 'rxjs';
 })
 export class AdminLogedGuard implements CanActivate {
   
-  constructor(){};
+  constructor(private router : Router){};
   
   canActivate() {
     if (localStorage.getItem('userType')) {
       const type = String(localStorage.getItem('userType'));
       if (type == 'administrador') {
         return true;
-      } else {
-        return false;
-      }
+      } 
     }
+    if (localStorage.getItem('user')) {
+      this.router.navigateByUrl('/home');
+    } else {
+      this.router.navigateByUrl('/login');
+    }
+    return false;
   }
   
 }
