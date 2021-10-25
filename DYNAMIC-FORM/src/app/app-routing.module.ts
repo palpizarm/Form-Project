@@ -6,6 +6,7 @@ import { FormTemplateComponent } from './components/form-template/form-template.
 import { FormComponent } from './components/form/form.component';
 import { LoginComponent } from './components/login/login.component';
 import { NewUserComponent } from './components/new-user/new-user.component';
+import { ReceivedFormsComponent } from './components/received-forms/received-forms.component';
 import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'forms', component: FormListComponent},
   {path: 'create-form-template', component: FormTemplateComponent},
   {path: 'fill-form', component: FormComponent},
+  {path: 'received-forms-list', component: ReceivedFormsComponent},
 
   {path: '**', pathMatch:'full', redirectTo: 'home'}
 ];

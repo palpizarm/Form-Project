@@ -5,7 +5,7 @@
             <div class="row">
                 <select (change)="selectForm($event.target.value)" id="form-type" class="form-select">
                     <option selected>Seleccionar Formulario</option>
-                    <option *ngFor="let type of formOptions" value="{{type}}">{{type}}</option>
+                    <option *ngFor="let route of approvalRoute" value="{{route.formTitle}}">{{route.formTitle}}</option>
                 </select>
             </div>
             <div class="row my-3">
@@ -16,10 +16,11 @@
                     <div class="row">
                         <div class="card">
                             <div class="card-body">
+                                <span class="text-danger" *ngIf="template.obligatory[index]" style="font-size: x-small;">La pregunta es obligatoria</span>
                                 <h2 class="">{{item}}</h2>
-                                <input *ngIf="template.type[index] != 'select'" class="form-control"
+                                <input (change)="form.answers[index] = $event.target.value" *ngIf="template.type[index] != 'select'" class="form-control"
                                     type="{{template.type[index]}}">
-                                <select *ngIf="template.type[index] == 'select'" class="form-select">
+                                <select (change)="form.answers[index] = $event.target.value" *ngIf="template.type[index] == 'select'" class="form-select">
                                     <option *ngFor="let option of template.values[index]" value="{{option}}">{{option}}</option>
                                 </select>
                             </div>
@@ -28,7 +29,7 @@
                 </div>
             </div>
             <div class="row">
-                <button type="button" (click)="sendForm()" class="btn btn-info">Enviar</button>
+                <button [disabled]="!templateSelected" type="button" (click)="sendForm()" class="btn btn-info">Enviar</button>
             </div>
         </div>
     </div>
