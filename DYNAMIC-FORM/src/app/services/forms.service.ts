@@ -34,7 +34,7 @@ export class FormsService {
   Description: Service to create new form 
   Route used: METHOD: POST router.post('/') from API-REST/routes/FormR.js
   */
-  create(sender:String,title:String,questions:[String],answers:[String]){
+  create(sender:String,title:String,questions:String[],answers:String[]){
     var data = {
       "sender" :sender,
       "title" : title,

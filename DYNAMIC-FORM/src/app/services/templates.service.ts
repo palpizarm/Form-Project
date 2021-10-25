@@ -13,7 +13,7 @@ export class TemplatesService {
   Description: Service to create new template
   Route used: METHOD: POST router.post('/create') from API-REST/routes/TemplateRoute.js
   */
-  create(title:String,questions:[String],type:String,obligatory:boolean,values:[[String]]){
+  create(title:String,questions:[String],type:[String],obligatory:[Boolean],values:[String[]]){
     var data ={
       "title" : title,
       "questions" : questions,
@@ -31,7 +31,6 @@ export class TemplatesService {
       },
       "data" : JSON.stringify(data),
     };
-    
     return from(
       $.ajax(settings).done()
     )

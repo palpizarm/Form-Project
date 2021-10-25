@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
+import { UtilService } from 'src/app/services/util.service';
 
 import Swal from 'sweetalert2';
 
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   user: User = new User();
   rememberUser: boolean = false;
 
-  constructor(private router : Router, private userService : UsersService) {
+  constructor(private router : Router, private userService : UsersService, private utilService : UtilService) {
 
   }
 
@@ -44,7 +45,10 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('userType', data.data.type);
         localStorage.setItem('logDate', new Date().getTime().toString());
         this.router.navigateByUrl('/home');
+        this.utilService.isLogedEmitChange(true);
+        this.utilService.isAdminEmitChange(data.data.type == 'administrador')
       } else {
+        this.utilService.isLogedEmitChange(false);
         Swal.fire({
           type: 'error',
           title: 'Error al autenticar',
