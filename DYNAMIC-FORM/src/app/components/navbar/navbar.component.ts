@@ -8,8 +8,10 @@ import { UtilService } from 'src/app/services/util.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
   adminUser: boolean = true;
   userLoged: boolean = false;
+  
 
   constructor(private router: Router, private utilService: UtilService) {
     this.utilService.isLoginEmitter
@@ -27,7 +29,13 @@ export class NavbarComponent implements OnInit {
 
   }
 
+
   ngOnInit(): void {
+    if (localStorage.getItem('userType') == 'usuario') {
+      this.adminUser = false;
+    } else {
+      this.adminUser = true;
+    }
   }
 
   // first remove from localStorage item of the log 

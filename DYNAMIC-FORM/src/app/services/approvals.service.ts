@@ -13,7 +13,7 @@ export class ApprovalsService {
   Description: Service to create new form route
   Route used: METHOD: POST router.post('/') from API-REST/routes/ApprovalRoute.js
   */
-  create(sender:String, formTitle:String,receivers:[],approvalsRequired:Number){
+  create(sender:String, formTitle:String,receivers:String[],approvalsRequired:Number){
     var data= {
       "sender" : sender,
       "formTitle":formTitle,
