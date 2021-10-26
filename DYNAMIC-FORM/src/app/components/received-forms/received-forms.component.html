@@ -49,7 +49,7 @@
                     <h6 class="text">{{formSelected.answers[indexQuestion]}}</h6>
                 </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer" *ngIf="formSelected.state != 'Aceptado'">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="markResponse(1)">Rechazar</button>
                 <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="markResponse(2)">Aprobar</button>
             </div>

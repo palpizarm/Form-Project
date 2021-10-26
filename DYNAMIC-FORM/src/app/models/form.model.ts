@@ -3,5 +3,6 @@ export class Form {
     title: string;
     questions : string[];
     answers : string[];
+    state: string;
     sender: string;
 }
