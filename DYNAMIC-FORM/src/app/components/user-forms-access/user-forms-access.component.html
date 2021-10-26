@@ -1,0 +1,89 @@
+<div class="animated fadeIn">
+    <div class="pt-5 pb-5">
+        <div>
+            <h1 class="text-center text-muted">Formularios de acceso de {{user}}</h1>
+        </div>
+    </div>
+    <div class="container">
+        <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addRouteModal"
+            (click)="newFormAccess()">
+            <i class="fas fa-plus-square"></i>
+            Agregar formulario</button>
+        <table id="users-table" class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Nombre del formulario</th>
+                    <th scope="col">Enviado a</th>
+                    <th scope="col">Cantidad de aprobaciones necesarias</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of formAccess; let index = index">
+                    <td>{{item.sender}}</td>
+                    <td>{{item.formTitle}}</td>
+                    <td>{{item.receivers}}</td>
+                    <td class="text-center">{{item.approvalsRequired}}</td>
+                    <td>
+                        <button class="btn btn-danger" (click)="removeForm(index)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal Form-->
+<div class="modal fade" id="addRouteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Formulario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-4">
+                        <h5 style="font-size: small;">Formulario</h5>
+                        <select class="form-select" (click)="newRoute.formTitle = $event.target.value">
+                            <option *ngFor="let item of formsNames; let formsIndex = index" value="{{item}}">
+                                {{item}}</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <h5 style="font-size: small;">Enviar a</h5>
+                        <select id="user-route-select" class="form-select" (change)="userRouteAdd($event.target.value)">
+                            <option disabled selected value="0">Seleccionar opción</option>
+                            <option *ngFor="let item of usersSelect; let userIndex = index" value="userIndex"
+                                value="{{item}}">
+                                {{item}}
+                            </option>
+                        </select>
+                        <div>
+                            <span *ngFor="let receiver of newRoute.receivers; let receiverIndex = index;">
+                                {{receiver}}
+                                <button (click) = "userRouteRemove(userIndex, receiver)" title="Eliminar usuario"><i class="fas fa-trash"></i></button>
+                                <br>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <h5 style="font-size: small;">Cantidad minima de aprobación</h5>
+                        <select class="form-select" (click)="newRoute.approvalsRequired = $event.target.value">
+                            <option value="0" selected>0</option>
+                            <option *ngFor="let item of newRoute.receivers; let requiredIndex = index"
+                                value="{{requiredIndex +1}}">
+                                {{requiredIndex+1}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="close-modal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary" (click)="addUserToNewForm()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

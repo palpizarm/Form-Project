@@ -13,6 +13,7 @@ import { FormComponent } from './components/form/form.component';
 import { FormListComponent } from './components/form-list/form-list.component';
 import { FormTemplateComponent } from './components/form-template/form-template.component';
 import { ReceivedFormsComponent } from './components/received-forms/received-forms.component';
+import { UserFormsAccessComponent } from './components/user-forms-access/user-forms-access.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ReceivedFormsComponent } from './components/received-forms/received-for
     FormComponent,
     FormListComponent,
     FormTemplateComponent,
-    ReceivedFormsComponent
+    ReceivedFormsComponent,
+    UserFormsAccessComponent
   ],
   imports: [
     BrowserModule,
