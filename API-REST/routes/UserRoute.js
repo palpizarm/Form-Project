@@ -130,15 +130,16 @@ Method: DELETE.
 Description: Delete a user by their id.
 Request URL: http://localhost:3000/users/:userId
 */
-router.delete('/:userId', async (req, res) => {
+router.delete('/:userId/:sender', async (req, res) => {
 
     try{
-        const removeUser = await User.remove({_id: req.params.userId});
-        const formCount = Form.count({sender:req.body.user})
+        await User.deleteOne({_id: req.params.userId});
+        /*const formCount = Form.count({sender : req.params.sender});
+        console.log(formCount);
         if (formCount != 0) {
-            const removeForm = await Form.deleteMany({sender: req.body.user});
-            const removeApproval = await Approval.deleteMany({sender: req.body.user});
-        }
+            await Form.deleteMany({sender: req.params.sender});
+            await Approval.deleteMany({sender: req.params.sender});
+        }*/
         
  
         res.json({

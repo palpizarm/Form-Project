@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if(localStorage.getItem('username')) {
-      this.user.username = localStorage.getItem('username');
+      this.user.user = localStorage.getItem('username');
       this.rememberUser = true;
     }
   }
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       text: 'Espere por favor...',
     })
     Swal.showLoading();
-    this.userService.login(this.user.username,this.user.password).subscribe((data:any) => {
+    this.userService.login(this.user.user,this.user.password).subscribe((data:any) => {
       Swal.close();
       if (data.code >= 0){
         localStorage.setItem('user', data.data.user);
@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
 
   addUserName() {
     if ( this.rememberUser) {
-      localStorage.setItem('username', this.user.username);
+      localStorage.setItem('username', this.user.user);
     } else {
       localStorage.removeItem('username');
     }

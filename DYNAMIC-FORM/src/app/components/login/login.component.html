@@ -11,14 +11,14 @@
             <div class="mb-3">
                 <input class="bg-light fs-3" 
                        type="text" 
-                       name="username" 
-                       [(ngModel)]="user.username"
+                       name="user" 
+                       [(ngModel)]="user.user"
                        required
-                       username
+                       user
                        placeholder="Usuario"
                        style="min-width: 400px; height: 50px;">
             </div>
-            <span *ngIf="form.submitted && form.controls['username'].errors"
+            <span *ngIf="form.submitted && form.controls['user'].errors"
                     class="text-danger animated fadeIn">El usuario es obligatorio</span>
 
             <div class="mb-3" data-validate = "Password is required">
