@@ -95,7 +95,7 @@ router.post('/login', async (req, res) => {
 
             res.json({
                 code: 0,
-                errorMsg: "",
+                msg: "",
                 data: {
                     "id": user._id,
                     "user": user.user,
@@ -109,7 +109,7 @@ router.post('/login', async (req, res) => {
         else{
             res.json({
                 code: -1,
-                errorMsg: "El usuario no existe.",
+                msg: "El usuario no existe.",
                 data: ""
             });
         }
@@ -149,8 +149,8 @@ router.delete('/:userId', async (req, res) => {
 
     }catch(error){
         res.json({
-            errorCode: -1,
-            errorMsg: "MongoDB ERROR",
+            code: -1,
+            msg: "MongoDB ERROR",
             data: error
         });
     }

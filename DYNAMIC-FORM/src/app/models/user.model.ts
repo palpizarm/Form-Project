@@ -1,5 +1,7 @@
 export class User {
-    email : string;
+    _id:string;
     password : string;
-    name : string;
+    username : string;
+    typeUser: string;
+    forms: String[];
 }
