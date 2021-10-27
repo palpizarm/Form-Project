@@ -29,8 +29,6 @@ export class FormTemplateComponent implements OnInit {
   }
 
   saveTemplate() {
-    console.log(this.title);
-    console.log(this.templateItems);
     if (this.title == '') {
       Swal.fire({
         type: 'error',
@@ -48,7 +46,6 @@ export class FormTemplateComponent implements OnInit {
       return;
     }
     if (this.validateQuestion() == false) return;
-    debugger;
     var questions: [String] = [''];
     questions.splice(0,1);
     var types: [String] = [''];

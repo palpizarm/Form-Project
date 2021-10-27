@@ -42,17 +42,14 @@ export class TemplatesService {
   */
   getTemplates(){
     var settings = {
-      "url": `${this.url}template/`,
+      "url": `${this.url}template`,
       "method": "GET",
       "timeout": 0,
-      "headers": {
-        "Content-Type": "application/json"
-      }
     };
     
-   return from(
-     $.ajax(settings).done()
-   )
+    return from (
+      $.ajax(settings).done()
+    );
 
   }
 
