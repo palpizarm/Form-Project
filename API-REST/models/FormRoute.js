@@ -1,5 +1,9 @@
+//Imports.
 const mongoose = require('mongoose');
 
+/*
+Scheme for handling the approval route of the Forms.
+*/
 const FormRoute = mongoose.Schema({
     formTitle: {
         type: String,
@@ -7,16 +11,16 @@ const FormRoute = mongoose.Schema({
     },
     sender: {
         type: String,
-        required : true
+        required: true
     },
-    receivers:{
-        type:[String],
-        required:true
+    receivers: {
+        type: [String],
+        required: true
     },
-    approvalsRequired:{
+    approvalsRequired: {
         type: Number,
-        required:true
+        required: true
     }
 });
 
-module.exports = mongoose.model('FormRoute', FormRoute);
+module.exports = mongoose.model('FormRoute', FormRoute); // Name and schema to use.
