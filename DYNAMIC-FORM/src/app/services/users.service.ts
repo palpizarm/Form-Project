@@ -84,20 +84,16 @@ export class UsersService {
   /*
   SERVICE: DELETE USERS
   Description: Service to delete user by Id 
-  Route used: METHOD: DELETE router.delete('/:userId') from API-REST/routes/UserRoute.js
+  Route used: METHOD: DELETE router.delete('/:userId/:sender') from API-REST/routes/UserRoute.js
   */
   deleteUserById(userId:String,user:String){
-    var data = {
-      "user" : user
-    }
     var settings = {
-      "url": `${this.url}users/${userId}`,
+      "url": `${this.url}users/${userId}/${user}`,
       "method": "DELETE",
       "timeout": 0,
       "headers": {
         "Content-Type": "application/x-www-form-urlencoded"
-      },
-      "data" : data
+      }
     };
     return from(
       $.ajax(settings).done()

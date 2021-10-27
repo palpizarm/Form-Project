@@ -62,15 +62,16 @@ export class UsersComponent implements OnInit {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.value) {
-        this.userService.deleteUserById(this.usersList[index]._id, this.usersList[index].username)
+        this.userService.deleteUserById(this.usersList[index]._id, this.usersList[index].user)
           .subscribe((data: any) => {
+            console.log(data)
             if (data.code >= 0) {
               Swal.fire({
                 title: 'Información',
                 type: 'info',
                 text: data.msg
               });
-              this.loadData();
+              this.loadUsers();
             } else {
               Swal.fire({
                 title: 'Error',

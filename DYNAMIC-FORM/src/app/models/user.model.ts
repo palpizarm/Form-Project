@@ -1,7 +1,7 @@
 export class User {
     _id:string;
     password : string;
-    username : string;
+    user : string;
     typeUser: string;
     forms: String[];
 }
