@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand navbar-light bg-light">
     <div class="collapse navbar-collapse container-fluid">
-        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+        <button [disabled]="!userLoged" class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
             aria-controls="offcanvasExample">
             <i class="navbar-toggler-icon text-secondary"></i>
             <span class="text-secondary fw-bolder">Menu</span>
@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             </ul>
-            <button class="btn btn-outline-primary fw-bolder fs-6" (click)="logout()" type="submit">Salir</button>
+            <button [disabled]="!userLoged" class="btn btn-outline-primary fw-bolder fs-6" (click)="logout()" type="submit">Salir</button>
         </div>
     </div>
 </nav>
@@ -42,21 +42,21 @@
 
         <p>
             <a class="btn btn-primary w-100" data-bs-toggle="collapse" href="#collapseFormItems" role="button"
-                aria-expanded="false" aria-controls="collapseFormItems">
+                aria-expanded="true" aria-controls="collapseFormItems">
                 <strong>Formularios</strong>
             </a>
         </p>
         <div class="collapse" id="collapseFormItems">
-            <a class="dropdown-item" role="button" aria-expanded="false">
+            <a class="dropdown-item" role="button" aria-expanded="false" [routerLink]="['fill-form']">
                 <strong>Enviar</strong>
             </a>
-            <a *ngIf="adminUser" class="dropdown-item" role="button" aria-expanded="false">
+            <a *ngIf="adminUser" class="dropdown-item" role="button" [routerLink]="[ '/create-form-template']" aria-expanded="false">
                 <strong>Crear Plantilla</strong>
             </a>
             <a class="dropdown-item" role="button" aria-expanded="false" [routerLink]="[ '/forms']" >
                 <strong>Ver Formularios</strong>
             </a>
-            <a class="dropdown-item" role="button" aria-expanded="false" [routerLink]="[ '/']" >
+            <a class="dropdown-item" role="button" aria-expanded="false" [routerLink]="[ '/received-forms-list']" >
                 <strong>Formularios Recibidos</strong>
             </a>
         </div>

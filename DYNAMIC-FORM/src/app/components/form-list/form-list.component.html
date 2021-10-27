@@ -1,33 +1,62 @@
 <div class="animated fadeInUp">
-    <div class="btn-grou mt-5 text-center" role="group" aria-label="Basic example">
-        <button type="button" class="btn mx-2 color-dark-blue">Revisión</button>
-        <button type="button" class="btn mx-2 color-dark-blue">Aceptados</button>
-        <button type="button" class="btn mx-2 color-dark-blue">Rechazados</button>
-      </div>
-      <div class="container">
-        <table id="users-table" class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre del formulario</th>
-                <th scope="col">Enviado a</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Acción</th>
-              </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of formList; let index = index">
-                    <th scope="row">{{index}}</th>
-                    <td>{{item}}</td>
-                    <td>{{item}}</td>
-                    <td>{{item}}</td>
-                    <td>
-                        <button class="btn color-dark-blue mx-2">Ver</button>
-                        <button class="btn color-light-green mx-2">Eliminar</button>
-                    </td>
-                  </tr>
-            </tbody>
-          </table>
-    </div>
+  <div *ngIf="formList.length == 0">
+    <h1 class="fs-2 text-muted text-center mt-5">
+      **No hay ningun formulario para mostrar**
+    </h1>
+  </div>
+  <div *ngIf="formList.length != 0" class="container mt-5">
+    <table id="users-table" class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre del formulario</th>
+          <th scope="col">Enviado de</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of formList; let index = index">
+          <th scope="row">{{index}}</th>
+          <td>{{item.title}}</td>
+          <td>{{item.sender}}</td>
+          <td>{{item.state}}</td>
+          <td>
+            <button *ngIf="item.state == 'Revision'"
+              class="btn btn-danger mx-2" (click)="removeForm(item._id)" data-bs-toggle="modal"
+              data-bs-target="#formModal">
+              Eliminar
+            </button>
+            <button class="btn color-dark-blue mx-2" (click)=openModalForm(index) data-bs-toggle="modal"
+              data-bs-target="#formModal">
+              Ver
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
+
+<!-- Form Modal -->
+<div class="modal fade" id="formModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title">{{formSelected.title}}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div *ngFor="let element of formSelected.questions; let indexQuestion = index"
+                  class="my-4">
+                  <h5 class="bg-light fw-bold">{{element}}</h5>
+                  <h6 class="text">{{formSelected.answers[indexQuestion]}}</h6>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="removeForm(formSelected._id)">Eliminar</button>
+          </div>
+      </div>
+  </div>
 </div>

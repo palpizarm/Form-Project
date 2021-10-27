@@ -12,6 +12,8 @@ import { NewUserComponent } from './components/new-user/new-user.component';
 import { FormComponent } from './components/form/form.component';
 import { FormListComponent } from './components/form-list/form-list.component';
 import { FormTemplateComponent } from './components/form-template/form-template.component';
+import { ReceivedFormsComponent } from './components/received-forms/received-forms.component';
+import { UserFormsAccessComponent } from './components/user-forms-access/user-forms-access.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { FormTemplateComponent } from './components/form-template/form-template.
     NewUserComponent,
     FormComponent,
     FormListComponent,
-    FormTemplateComponent
+    FormTemplateComponent,
+    ReceivedFormsComponent,
+    UserFormsAccessComponent
   ],
   imports: [
     BrowserModule,

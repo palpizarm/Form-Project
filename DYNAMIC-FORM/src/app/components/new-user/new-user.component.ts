@@ -30,7 +30,7 @@ export class NewUserComponent implements OnInit {
       text: 'Creando usuario...',
     })
     Swal.showLoading();
-    this.userUservice.create(this.user.username, this.user.password, this.user.typeUser)
+    this.userUservice.create(this.user.user, this.user.password, this.user.typeUser)
       .subscribe((data:any) => {
         Swal.close();
         if (data.code >= 0) {
@@ -56,7 +56,7 @@ export class NewUserComponent implements OnInit {
     this.user.password = '';
     (<HTMLInputElement>document.getElementById('user-type')).value = 'usuario';
     this.user.typeUser = 'usuario';
-    this.user.username = '';
+    this.user.user = '';
     form.resetForm();
   }
 

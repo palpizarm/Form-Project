@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
+import { UtilService } from 'src/app/services/util.service';
 
 import Swal from 'sweetalert2';
 
@@ -15,13 +16,13 @@ export class LoginComponent implements OnInit {
   user: User = new User();
   rememberUser: boolean = false;
 
-  constructor(private router : Router, private userService : UsersService) {
+  constructor(private router : Router, private userService : UsersService, private utilService : UtilService) {
 
   }
 
   ngOnInit(): void {
     if(localStorage.getItem('username')) {
-      this.user.username = localStorage.getItem('username');
+      this.user.user = localStorage.getItem('username');
       this.rememberUser = true;
     }
   }
@@ -37,14 +38,17 @@ export class LoginComponent implements OnInit {
       text: 'Espere por favor...',
     })
     Swal.showLoading();
-    this.userService.login(this.user.username,this.user.password).subscribe((data:any) => {
+    this.userService.login(this.user.user,this.user.password).subscribe((data:any) => {
       Swal.close();
       if (data.code >= 0){
         localStorage.setItem('user', data.data.user);
         localStorage.setItem('userType', data.data.type);
         localStorage.setItem('logDate', new Date().getTime().toString());
         this.router.navigateByUrl('/home');
+        this.utilService.isLogedEmitChange(true);
+        this.utilService.isAdminEmitChange(data.data.type == 'administrador')
       } else {
+        this.utilService.isLogedEmitChange(false);
         Swal.fire({
           type: 'error',
           title: 'Error al autenticar',
@@ -58,7 +62,7 @@ export class LoginComponent implements OnInit {
 
   addUserName() {
     if ( this.rememberUser) {
-      localStorage.setItem('username', this.user.username);
+      localStorage.setItem('username', this.user.user);
     } else {
       localStorage.removeItem('username');
     }

@@ -12,11 +12,11 @@
                 </div>
 
                 <div class="col-md-12 col-lg-6">
-                    <span *ngIf="form.submitted && form.controls['username'].errors" class="text-danger animated fadeIn">
+                    <span *ngIf="form.submitted && form.controls['user'].errors" class="text-danger animated fadeIn">
                         El nombre de usuario es obligatorio
                     </span>
                     <div class="mb-3">
-                        <input class="bg-light fs-4" type="text" name="username" [(ngModel)]="user.username" required username
+                        <input class="bg-light fs-4" type="text" name="user" [(ngModel)]="user.user" required user
                             placeholder="Nombre de usuario" style="min-width: 400px; height: 50px;">
                     </div>
 
