@@ -108,8 +108,12 @@ router.get('/',async (req,res) => {
 router.delete('/:userId',async (req,res) => {
     try{
         const removeUser = await User.remove({_id: req.params.userId});
-        const removeForm = await Form.deleteMany({sender: req.body.user});
-        const removeApproval = await Approval.deleteMany({sender: req.body.user});
+        const formCount = Form.count({sender:req.body.user})
+        if (formCount != 0) {
+            const removeForm = await Form.deleteMany({sender: req.body.user});
+            const removeApproval = await Approval.deleteMany({sender: req.body.user});
+        }
+        
  
         res.json({
             errorCode: 0,
